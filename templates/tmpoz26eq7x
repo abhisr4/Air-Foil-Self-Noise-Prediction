@@ -1,0 +1,96 @@
+<!doctype html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .table-result{
+            padding-top: 20px;
+        }
+        .heading_style{
+            border: 1px, #dddddd;
+            text-align:center;
+            padding: 8px;
+        }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+      <div class="container">
+          <div class="jumbotron">
+              <h1 class="display-4">Airfoil Noise Prediction</h1>
+              <p class="lead">This a Machine Learning project where Scaled Sound Pressure Level is predicted using Deep Learning Model</p>
+               <hr class="my-4">
+               <p>It is a Regression Model. Artificial Neural Network has been used to predict the output</p>
+               <p class="lead">
+                   <p>The NASA data set comprises different size NACA 0012 airfoils at various wind tunnel speeds and angles of attack. The span of the airfoil and the observer position were the same in all of the experiments.</p>
+                   <p> More Information about the dataset can be found <a href="https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise">here</a></p>
+                   <p>The repository can be found <a href="#">here</a></p>
+               </p>
+          </div>
+          <div>
+              <form method="POST" action="/submit">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon3">Frequency</span>
+                      </div>
+                      <input type="number" step="0.0000001" class="form-control" name="frequency" aria-describedby="basic-addon3">
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon3">Angel of Attack</span>
+                      </div>
+                      <input type="number" step="0.0000001"class="form-control" name="AngleOfAttack" aria-describedby="basic-addon3">
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" name="basic-addon3">Chord Length</span>
+                      </div>
+                      <input type="number" step="0.0000001"class="form-control" name="chordLength" aria-describedby="basic-addon3">
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" name="basic-addon3">Free Stream Velocity</span>
+                      </div>
+                      <input type="number" step="0.0000001"class="form-control" name="freeSteamVelocity" aria-describedby="basic-addon3">
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon3">SSD Thickness</span>
+                      </div>
+                      <input type="number" step="0.0000001"class="form-control" name="suctionSideDisplacement" aria-describedby="basic-addon3">
+                  </div>
+                  <div class="input-group-prepend">
+                      <input type="submit">
+                  </div>
+              </form>
+              
+              <!--{% if predictedOutput%}
+                  <p>The predicted Sound Pressure Level is: {{predictedOutput}}</p>
+              {% endif %}-->
+          </div>
+          {%if predictedOutput%}
+          <div class="table-result">
+              <table>
+                  <tr class="heading_style">
+                      <th>Frequency</th>
+                      <th>Angle of Attack</th>
+                      <th>Chord Length</th>
+                      <th>Free Stream Velocity</th>
+                      <th>Suction Side Displacement Thickness</th>
+                      <th>Scaled Sound Pressure Level</th>
+                  </tr>
+                  <tr>
+                  {% for item in predictedOutput %}
+                      <th>{{item}}</th>
+                  {% endfor %}
+                  </tr>     
+              </table>
+          </div>
+          {% endif %}
+      </div>
+  </body>
+</html>
