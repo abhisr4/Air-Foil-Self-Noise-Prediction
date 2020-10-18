@@ -1,6 +1,9 @@
 # Air Foil Self Noise Prediction
 
 A simple Flash Web application to predict the air foil self noise.
+The web application has been deployed in heroku platform. Please check it out https://air-foil-self-noise.herokuapp.com
+
+All the necessary infomation has been provided for testing purposes.
 
 # Dataset
 The dataset can be found UCI Machine Learning Repository.
