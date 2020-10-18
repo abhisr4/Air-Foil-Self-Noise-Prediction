@@ -16,6 +16,13 @@ The problem has following inputs:
 
 The only output is -> scaled sound pressure level, in decibles
 
+# Tools Used
+ 1. HTML, CSS
+ 2. Flask framework
+ 3. Python tensorflow library
+ 4. Jupyter Notebook for training the model
+ 5. Machine Learning libraries
+
 # Additional Notes
  1. I have used Aritifical Neural Network to build the regression model.
  2. Any regression will do the following task but conventional regression model is not that suitable. Recurrent Neural Network, Convolutional Neural Network Models might do the job as well.
